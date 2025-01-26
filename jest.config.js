@@ -8,6 +8,7 @@ module.exports = {
   setupFilesAfterEnv: ["<rootDir>/setupTests.ts"], 
   moduleNameMapper: {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
-    "^@utils/(.*)$": "<rootDir>/src/utils/$1"
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    "^@services/(.*)$": "<rootDir>/src/services/$1"
   },
 };
