@@ -1,0 +1,38 @@
+.wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    padding: 0 16px
+
+    .card
+        display: flex
+        flex-direction: column
+        width: fit-content
+        border: 0.5px solid #000000
+        padding: 16px
+        gap: 24px
+
+        .info
+            display: flex
+            flex-direction: column
+            gap: 4px
+
+            .title
+                font-size: 10px
+                line-height: 12.09px
+                font-weight: 300
+                color: #79736D
+
+            .description
+                display: flex
+                justify-content: space-between
+                font-size: 12px
+                line-height: 14.51px
+
+@media (min-width: 834px) 
+    .wrapper
+        padding: 0 40px
+
+@media (min-width: 1920px) 
+    .wrapper
+        padding: 0 100px
