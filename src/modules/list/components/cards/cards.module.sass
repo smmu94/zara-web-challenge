@@ -11,6 +11,26 @@
         border: 0.5px solid #000000
         padding: 16px
         gap: 24px
+        position: relative
+        overflow: hidden
+
+        &:hover
+            color: #FFFFFF
+
+        &::after
+            z-index: -1
+            content: ""
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
+            height: 0
+            background-color: #000000
+            transition: height 0.1s ease-out
+
+        &:hover::after
+            height: 100%
+            transition: height 0.8s ease-in
 
         .info
             display: flex
