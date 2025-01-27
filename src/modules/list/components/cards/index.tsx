@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./cards.module.sass";
-import { useGetProductList } from "@services/list";
 import Image from "next/image";
+import { ProductsListContext } from "src/contexts/productsListContext";
+import { useGetProductList } from "@services/list";
+import { useRouter } from "next/router";
+import routes from "@utils/routes";
 
 export default function Cards() {
-  const { data } = useGetProductList({ limit: 20, offset: 0, search: "" });
-  console.log(data);
+  const router = useRouter();
+  const { search, setProductsList, productsList } = useContext(ProductsListContext);
+
+  useGetProductList(
+    { search, limit: 20, offset: 0 },
+    {
+      onSuccess: (data) => {
+        setProductsList(data);
+      },
+    }
+  );
+
+  const goToDetailsView = () => {
+    router.push(routes.detail.main);
+  };
+
   return (
     <div className={styles.wrapper}>
-      {data?.map((phone) => (
-        <div key={phone.id} className={styles.card}>
+      {productsList.length && productsList.map((phone, i) => (
+        <div key={`${phone.id}-${i}`} className={styles.card} onClick={goToDetailsView}>
           <Image
             src={phone.imageUrl}
             alt={phone.name}
