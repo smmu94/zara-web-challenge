@@ -1,0 +1,1 @@
+export const PRODUCTS_DETAILS_KEY = "products_details";
