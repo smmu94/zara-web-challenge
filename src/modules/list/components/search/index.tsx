@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from "react";
 import styles from "./search.module.sass";
-import { ProductsListContext } from "src/contexts/productsListContext";
+import { ProductsListContext } from "@contexts/productsListContext";
 import { debounce } from "underscore";
 
 export default function Search() {
@@ -20,7 +20,7 @@ export default function Search() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="ListView-Search">
       <input
         type="search"
         placeholder="Search for a smartphone..."

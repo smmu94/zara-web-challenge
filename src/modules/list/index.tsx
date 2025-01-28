@@ -5,7 +5,7 @@ import Search from "./components/search";
 
 export default function ListView() {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid="list-view">
       <Search />
       <Cards />
     </div>
