@@ -1,0 +1,41 @@
+.wrapper
+    display: flex
+    flex-direction: column
+    height: 100%
+
+    .items
+        display: flex
+        flex-direction: column
+        padding: 24px 16px
+        gap: 24px
+        flex-grow: 1
+        overflow: hidden
+
+        .title
+            font-size: 20px
+            line-height: 24.18px
+            font-weight: 300
+        
+        .products
+            display: flex
+            flex-direction: column
+            gap: 24px
+            flex-grow: 1
+            height: 100%
+            overflow-y: auto
+
+@media (min-width: 834px) 
+    .wrapper
+        .items
+            width: 100%
+            padding: 48px 40px 0px 40px
+            gap: 48px
+
+            .products
+                gap: 48px
+
+@media (min-width: 1920px)
+    .wrapper
+        .items
+            width: 100%
+            padding: 48px 100px 0px 100px

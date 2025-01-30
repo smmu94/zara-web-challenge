@@ -21,8 +21,8 @@
       "@utils/*": ["src/utils/*"]    ,   
       "@contexts/*": ["src/contexts/*"],  
       "@components/*": ["src/components/*"]    
-    }
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

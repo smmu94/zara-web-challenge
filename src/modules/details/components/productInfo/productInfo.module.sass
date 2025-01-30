@@ -1,0 +1,136 @@
+.wrapper
+    display: flex
+    flex-direction: column
+    gap: 40px
+    padding: 0 16px
+    margin-top: 50px
+
+    .image
+        width: auto
+        height: 273px
+        object-fit: contain
+
+    .info
+        display: flex
+        flex-direction: column
+        gap: 40px
+        
+        .title
+            display: flex
+            flex-direction: column
+            gap: 11px
+            font-weight: 300
+
+            .name
+                font-size: 20px
+                line-height: 24.18px
+            
+            .priceFrom
+                font-size: 14px
+                line-height: 16.93px
+
+        .selectors
+            display: flex
+            flex-direction: column
+            gap: 32px
+
+            .storage
+                display: flex
+                flex-direction: column
+                gap: 20px
+
+                .label
+                    font-weight: 300
+                    font-size: 12px
+                    line-height: 14.51px
+                
+                .options
+                    display: flex
+
+            .colorOp
+                display: flex
+                flex-direction: column
+                gap: 20px
+
+                .label
+                    font-weight: 300
+                    font-size: 12px
+                    line-height: 14.51px
+                
+                .containerOp
+                    display: flex
+                    flex-direction: column
+                    gap: 8px
+
+                    .options
+                        display: flex
+                        gap: 16px
+
+                    .colorName
+                        font-size: 12px
+                        line-height: 14.51px
+                
+        .button
+            background: #000000
+            padding: 5px 7px
+            height: 48px
+            color:#FFFFFF
+            size: 12px
+            line-height: 16px
+            text-align: center
+
+@media (min-width: 834px)
+    .wrapper
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        align-self:  center
+        width: 754px
+
+        .image
+            width: 336px
+            height: auto
+
+        .info
+            width: 362px
+
+
+
+@media (min-width: 1920px) 
+    .wrapper
+        width: 1200px
+
+        .image
+            width: 510px
+            height: auto
+
+        .info
+            width: 380px
+            gap: 64px
+
+            .title
+                .name
+                    font-size: 24px
+                    line-height: 29.02px
+                
+                .priceFrom
+                    font-size: 20px
+                    line-height: 24.18px
+
+            .selectors
+                gap: 40px
+
+                .storage
+                    gap: 24px
+                    
+                    .label
+                        font-size: 14px
+                        line-height: 16.93px
+
+                .colorOp
+                    gap: 24px
+
+                    .label
+                        font-size: 14px
+                        line-height: 16.93px

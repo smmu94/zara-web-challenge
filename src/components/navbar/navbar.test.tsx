@@ -10,7 +10,7 @@ describe("Navbar", () => {
     expect(logo).toHaveAttribute("alt", "logo");
     expect(logo.closest("a")).toHaveAttribute("href", routes.home.main);
     const cart = screen.getAllByRole("img")[1];
-    expect(cart).toHaveAttribute("alt", "cart");
+    expect(cart).toHaveAttribute("alt", "bag");
     expect(cart.closest("a")).toHaveAttribute("href", routes.cart.main);
   });
 });

@@ -24,6 +24,9 @@ export const useGetProductList = (
       const data: ProductListBody = await response.json();
       return data;
     },
-    options
+    (options = {
+      ...options,
+      refetchOnWindowFocus: false,
+    })
   );
 };

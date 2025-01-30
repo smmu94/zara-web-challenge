@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import routes from "@utils/routes";
 import styles from "./navbar.module.sass";
 import Image from "next/image";
+import { SelectedProductsContext } from "@contexts/selectedProductsContext";
 
 export default function Navbar() {
+  const { selectedProducts } = useContext(SelectedProductsContext);
   return (
     <nav className={styles.wrapper}>
       <Link
@@ -28,8 +30,13 @@ export default function Navbar() {
         }}
       >
         <a className={styles.link}>
-          <Image src="/assets/cart.svg" width={28} height={28} alt="cart" />
-          <p className={styles.text}>0</p>
+          <Image
+            src={`/assets/${!!selectedProducts.length ? "bag_solid" : "bag"}.svg`}
+            width={28}
+            height={28}
+            alt="bag"
+          />
+          <p className={styles.text}>{selectedProducts.length}</p>
         </a>
       </Link>
     </nav>
