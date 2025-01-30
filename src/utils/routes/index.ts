@@ -3,7 +3,7 @@ const routes = {
     main: "/",
   },
   detail: {
-    main: "/detail",
+    main: "/detail/[id]",
   },
   cart: {
     main: "/cart",
