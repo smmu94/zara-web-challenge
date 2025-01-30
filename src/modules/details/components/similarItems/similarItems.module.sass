@@ -1,0 +1,39 @@
+.wrapper
+    display: flex
+    flex-direction: column
+    gap: 40px
+    padding: 0 16px 80px
+    
+    .title
+        font-size: 20px
+        line-height: 24.18px
+    
+    .carrousel
+        display: flex
+        overflow-x: auto
+        scroll-behavior: smooth
+        padding-bottom: 40px
+
+        &::-webkit-scrollbar
+            height: 1px
+
+        &::-webkit-scrollbar-thumb
+            background-color: #000000
+
+        &::-webkit-scrollbar-track
+            background-color: #CCCCCC
+
+@media (min-width: 834px)
+    .wrapper
+        width: 754px
+        align-self:  center
+
+        .carrousel
+            padding-bottom: 80px
+
+@media (min-width: 1920px) 
+    .wrapper
+        width: 1200px
+
+        .carrousel
+            padding-bottom: 104px

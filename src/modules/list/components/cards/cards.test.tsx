@@ -86,6 +86,9 @@ describe("ListView - Cards", () => {
     render(<Component />);
     const card = screen.getAllByTestId("card")[0];
     card.click();
-    expect(pushMock).toHaveBeenCalledWith(routes.detail.main);
+    expect(pushMock).toHaveBeenCalledWith({
+      pathname: routes.detail.main,
+      query: { id: listMock[0].id },
+    });
   });
 });
