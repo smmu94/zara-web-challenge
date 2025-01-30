@@ -24,7 +24,7 @@ jest.mock("@tanstack/react-query", () => ({
 
 global.fetch = jest.fn();
 
-const id = 1;
+const id = "1";
 
 describe("useGetProductDetails", () => {
   beforeEach(() => {
@@ -37,7 +37,7 @@ describe("useGetProductDetails", () => {
       json: mockFetchFunction,
     });
     (useQuery as jest.Mock).mockImplementation((key, queryFn) => {
-      queryFn(id.toString()).then(() => {});
+      queryFn(id).then(() => {});
       return {
         data: detailsMock,
         isLoading: false,
@@ -61,7 +61,7 @@ describe("useGetProductDetails", () => {
       json: mockFetchFunction,
     });
     (useQuery as jest.Mock).mockImplementation((key, queryFn) => {
-      queryFn(id.toString()).catch(() => {});
+      queryFn(id).catch(() => {});
       return {
         data: null,
         isLoading: false,

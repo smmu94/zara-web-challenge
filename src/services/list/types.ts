@@ -4,10 +4,12 @@ export type QueryParams = {
     offset: number
 }
 
-export type ProductListBody = Array<{
+export type Product = {
     id: string,
     brand: string,
     name: string,
     basePrice: number,
     imageUrl: string
-}>;
+}
+
+export type ProductListBody = Array<Product>;
