@@ -8,6 +8,8 @@ import { useGetDetailsId } from "./hooks/useGetDetailsId";
 import Specifications from "./components/specifications";
 import SimilarItems from "./components/similarItems";
 import Image from "next/image";
+import { messages } from "./constants";
+import Messages from "@components/messages";
 
 export default function DetailsView() {
   const { id } = useGetDetailsId();
@@ -15,7 +17,12 @@ export default function DetailsView() {
     enabled: !!id,
   });
   return (
-    <section className={styles.wrapper} data-testid="details-view" aria-label="details-view" role="region">
+    <section
+      className={styles.wrapper}
+      data-testid="details-view"
+      aria-label="details-view"
+      role="region"
+    >
       <Link href={routes.home.main} passHref>
         <a className={styles.back}>
           <Image
@@ -30,8 +37,8 @@ export default function DetailsView() {
           BACK
         </a>
       </Link>
-      {isLoading && <div className={styles.loading}>Loading...</div>}
-      {isError && <div className={styles.error}>Something went wrong...</div>}
+      {isLoading && <Messages message={messages.loading} />}
+      {isError && <Messages message={messages.error} isError />}
       <section className={styles.content} aria-label="details-content">
         <ProductInfo />
         <Specifications />

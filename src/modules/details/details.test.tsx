@@ -10,6 +10,7 @@ import { detailsMock } from "@services/details/dataMock";
 import { useRouter } from "next/router";
 import routes from "@utils/routes";
 import { useGetDetailsId } from "./hooks/useGetDetailsId";
+import { messages } from "./constants";
 
 jest.mock("@tanstack/react-query", () => ({
   ...jest.requireActual("@tanstack/react-query"),
@@ -74,13 +75,13 @@ describe("DetailsView", () => {
       isLoading: true,
     }));
     render(<Component />);
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    expect(screen.getByText(messages.loading)).toBeInTheDocument();
   });
   it("DetailsView: should render the error state", () => {
     (useQuery as jest.Mock).mockImplementationOnce(() => ({
       isError: true,
     }));
     render(<Component />);
-    expect(screen.getByText("Something went wrong...")).toBeInTheDocument();
+    expect(screen.getByText(messages.error)).toBeInTheDocument();
   });
 });

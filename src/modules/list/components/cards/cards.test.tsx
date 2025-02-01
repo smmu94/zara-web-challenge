@@ -11,6 +11,7 @@ import { ProductsListContext } from "@contexts/productsListContext";
 import routes from "@utils/routes";
 import { useRouter } from "next/router";
 import { ProductListBody } from "@services/list/types";
+import { messages } from "./constants";
 
 const mockSetProductsList = jest.fn();
 
@@ -75,7 +76,7 @@ describe("ListView - Cards", () => {
       isError: false,
     });
     render(<Component />);
-    expect(screen.getByText("Loading...")).toBeInTheDocument();
+    expect(screen.getByText(messages.loading)).toBeInTheDocument();
   });
   it("Cards: render error state", () => {
     (useQuery as jest.Mock).mockReturnValue({
@@ -84,7 +85,7 @@ describe("ListView - Cards", () => {
       isError: true,
     });
     render(<Component />);
-    expect(screen.getByText("Something went wrong...")).toBeInTheDocument();
+    expect(screen.getByText(messages.error)).toBeInTheDocument();
   });
   it("Cards: render no results found", () => {
     (useQuery as jest.Mock).mockReturnValue({
@@ -93,7 +94,7 @@ describe("ListView - Cards", () => {
       isError: false,
     });
     render(<Component />);
-    expect(screen.getByText("No results found")).toBeInTheDocument();
+    expect(screen.getByText(messages.empty)).toBeInTheDocument();
   });
   it("Cards: go to Details View", () => {
     render(<Component productList={listMock}/>);

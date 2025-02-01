@@ -19,9 +19,13 @@ export const useGetProductList = (
   return useQuery(
     [PRODUCTS_LIST_KEY, queryParams],
     async () => {
-      const { limit, offset, search } = queryParams;
+      const params = new URLSearchParams(
+        Object.entries(queryParams)
+          .filter(([, value]) => value)
+          .map(([key, value]) => [key, value.toString()])
+      );
       const response = await fetch(
-        `${baseURL}/${PRODUCTS_LIST_KEY}?search=${search}&limit=${limit}&offset=${offset}`,
+        `${baseURL}/${PRODUCTS_LIST_KEY}?${params.toString()}`,
         {
           method: "GET",
           headers: {

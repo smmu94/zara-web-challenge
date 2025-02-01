@@ -1,0 +1,13 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: typography.$font-size-xl
+    margin-top: spacing.$spacing-xl * 2
+
+    .error
+        color: map-get(colors.$colors, "error")

@@ -3,6 +3,8 @@ import styles from "./cards.module.sass";
 import { ProductsListContext } from "@contexts/productsListContext";
 import { useGetProductList } from "@services/list";
 import Card from "@components/card";
+import Messages from "@components/messages";
+import { messages } from "./constants";
 
 export default function Cards() {
   const { search, setProductsList, productsList } =
@@ -18,15 +20,15 @@ export default function Cards() {
   );
 
   if (isError) {
-    return <div>Something went wrong...</div>;
+    return <Messages message={messages.error} isError />;
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Messages message={messages.loading} />;
   }
 
   if (!productsList.length) {
-    return <div>No results found</div>;
+    return <Messages message={messages.empty} />;
   }
 
   return (
