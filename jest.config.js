@@ -12,9 +12,10 @@ module.exports = {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     "^@services/(.*)$": "<rootDir>/src/services/$1",
+    "^@modules/(.*)$": "<rootDir>/src/modules/$1",
   },
   collectCoverage: true,
-  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/contexts/**/*.{ts,tsx}"],
+  collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/contexts/**/*.{ts,tsx}", "!**/types.ts"],
   coverageDirectory: "coverage",
   coverageReporters: ["text", "lcov"],
 };

@@ -21,6 +21,7 @@ export default function PayResume() {
       window.removeEventListener("resize", checkIfMobile);
     };
   }, []);
+  
   const getTotal = () => {
     return selectedProducts.reduce(
       (acc, product) => acc + product.storage.price,

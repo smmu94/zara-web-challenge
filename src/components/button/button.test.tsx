@@ -4,7 +4,7 @@ import Button from ".";
 import { ButtonProps } from "./types";
 import userEvent from "@testing-library/user-event";
 
-const props: ButtonProps = {
+const mockButton: ButtonProps = {
   style: "Primary",
   isDisabled: false,
   onClick: jest.fn(),
@@ -15,7 +15,7 @@ const props: ButtonProps = {
 describe("Button", () => {
   it("Button: should render children", () => {
     render(
-      <Button onClick={props.onClick} style={props.style}>
+      <Button {...mockButton}>
         Click me
       </Button>
     );
@@ -24,7 +24,7 @@ describe("Button", () => {
 
   it("Button: should render primary button", () => {
     const { container } = render(
-      <Button style="Primary" onClick={props.onClick}>
+      <Button {...mockButton}>
         Click me
       </Button>
     );
@@ -33,7 +33,7 @@ describe("Button", () => {
 
   it("Button: should render disabled button", () => {
     const { container } = render(
-      <Button isDisabled onClick={props.onClick} style={props.style}>
+      <Button {...mockButton} isDisabled>
         Click me
       </Button>
     );
@@ -42,7 +42,7 @@ describe("Button", () => {
 
   it("Button: should render extra height button", () => {
     const { container } = render(
-      <Button onClick={props.onClick} style={props.style} isExtraHeight>
+      <Button {...mockButton} isExtraHeight>
         Click me
       </Button>
     );
@@ -52,7 +52,7 @@ describe("Button", () => {
   it("Button: should call onClick", () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <Button style={props.style} onClick={onClick}>
+      <Button {...mockButton} onClick={onClick}>
         Click me
       </Button>
     );

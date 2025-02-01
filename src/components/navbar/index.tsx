@@ -34,7 +34,7 @@ export default function Navbar() {
             src={`/assets/${!!selectedProducts.length ? "bag_solid" : "bag"}.svg`}
             width={28}
             height={28}
-            alt="bag"
+            alt={!!selectedProducts.length ? "bag_solid" : "bag"}
           />
           <p className={styles.text}>{selectedProducts.length}</p>
         </a>

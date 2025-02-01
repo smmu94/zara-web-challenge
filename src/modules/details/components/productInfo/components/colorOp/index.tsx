@@ -8,9 +8,10 @@ export default function ColorOp({ color, isSelected, onClick, id }: ColorOpProps
       className={`${styles.wrapper} ${isSelected ? styles.selected : ""}`}
       onClick={onClick}
       id={id}
+      data-testid="productInfo-colorOp"
     >
       <div
-        style={{ backgroundColor: color.hexCode }}
+        style={{ backgroundColor: color }}
         className={styles.color}
       />
     </div>

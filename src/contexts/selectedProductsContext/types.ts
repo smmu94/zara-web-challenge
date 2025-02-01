@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { FormData } from "@modules/details/components/productInfo/form";
 import { ProductDetailsBody } from "@services/details/types";
 
@@ -8,5 +9,5 @@ export type SelectedProduct = FormData & {
 
 export type SelectedProductsContextType = {
     selectedProducts: SelectedProduct[];
-    setSelectedProducts: React.Dispatch<React.SetStateAction<SelectedProduct[]>>;
+    setSelectedProducts: Dispatch<SetStateAction<SelectedProduct[]>>;
 };

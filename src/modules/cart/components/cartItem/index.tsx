@@ -4,10 +4,10 @@ import { CartItemProps } from "./types";
 import { SelectedProductsContext } from "@contexts/selectedProductsContext";
 
 export default function CartItem({ color, id, storage, name }: CartItemProps) {
+  const { setSelectedProducts } = useContext(SelectedProductsContext);
   const handleDelete = () => {
     setSelectedProducts((prev) => prev.filter((product) => product.id !== id));
   };
-  const { setSelectedProducts } = useContext(SelectedProductsContext);
   return (
     <div className={styles.wrapper} data-testid="cart-item">
       <img src={color.imageUrl} alt={`${name} ${color.name}`} className={styles.image} />

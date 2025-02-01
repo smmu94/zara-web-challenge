@@ -29,7 +29,12 @@ export default function ProductInfo() {
   const defaultImage = product.colorOptions[0].imageUrl;
 
   const addToCart = () => {
-    setSelectedProducts((prev) => [...prev, { ...watch(), id: product.id }]);
+    const newProduct = {
+      ...watch(),
+      id: `${product.id}-${watch("color").name}-${storage}`,
+      name: product.name,
+    };
+    setSelectedProducts((prev) => [...prev, newProduct]);
     router.push(routes.cart.main);
   };
 
@@ -37,7 +42,7 @@ export default function ProductInfo() {
     <div className={styles.wrapper} data-testid="detailsView-productInfo">
       <img
         className={styles.image}
-        src={imageUrl ? imageUrl : defaultImage}
+        src={imageUrl || defaultImage}
         alt={product.name}
       />
       <div className={styles.info}>
@@ -52,7 +57,7 @@ export default function ProductInfo() {
             name="storage"
             control={control}
             render={({ field }) => (
-              <div className={styles.storage}>
+              <div className={styles.storage} data-testid="storage">
                 <label htmlFor="storage" className={styles.label}>
                   STORAGE ¿HOW MUCH SPACE DO YOU NEED?
                 </label>
@@ -74,7 +79,7 @@ export default function ProductInfo() {
             name="color"
             control={control}
             render={({ field }) => (
-              <div className={styles.colorOp}>
+              <div className={styles.colorOp} data-testid="color">
                 <label htmlFor="color" className={styles.label}>
                   COLOR. PICK YOUR FAVOURITE.
                 </label>
@@ -84,7 +89,7 @@ export default function ProductInfo() {
                       <ColorOp
                         key={colorOp.name}
                         id={`color-${colorOp.name}`}
-                        color={{ hexCode: colorOp.hexCode, name: colorOp.name }}
+                        color={colorOp.hexCode}
                         isSelected={field.value.name === colorOp.name}
                         onClick={() => setValue("color", colorOp)}
                       />

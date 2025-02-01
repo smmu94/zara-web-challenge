@@ -13,6 +13,7 @@ export default function Storage({
       className={`${styles.wrapper} ${isSelected ? styles.selected : ""}`}
       onClick={onClick}
       id={id}
+      data-testid="productInfo-storage"
     >
       {storage}
     </div>

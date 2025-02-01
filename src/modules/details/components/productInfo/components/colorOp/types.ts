@@ -1,8 +1,5 @@
 export type ColorOpProps = {
-    color: {
-        name: string;
-        hexCode: string;
-    }
+    color: string
     isSelected: boolean;
     id: string;
     onClick: () => void;
