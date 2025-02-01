@@ -1,0 +1,47 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-l * 2
+    padding: 0 spacing.$spacing-m spacing.$spacing-l * 4
+    
+    .title
+        font-size: typography.$font-size-xl
+        line-height: typography.$line-height-xl
+    
+    .carrousel
+        display: flex
+        overflow-x: auto
+        scroll-behavior: smooth
+        -webkit-overflow-scrolling: touch
+        padding-bottom: spacing.$spacing-l * 2
+
+        &::-webkit-scrollbar
+            height: spacing.$spacing-2xs * 0.25
+
+        &::-webkit-scrollbar-thumb
+            background-color: map-get(colors.$colors, "dark")
+
+        &::-webkit-scrollbar-track
+            background-color: map-get(colors.$colors, "light-border")
+
+        li
+            list-style: none
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+    .wrapper
+        width: spacing.$spacing-l * 37.7
+        align-self:  center
+
+        .carrousel
+            padding-bottom: spacing.$spacing-l * 4
+
+@media (min-width: spacing.$spacing-l * 96) 
+    .wrapper
+        width: spacing.$spacing-l * 60
+
+        .carrousel
+            padding-bottom: spacing.$spacing-l * 5.2

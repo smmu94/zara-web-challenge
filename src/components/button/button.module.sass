@@ -1,0 +1,55 @@
+@use "@styles/_borders" as borders
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+
+.button
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: spacing.$spacing-m * 3
+    padding: spacing.$spacing-2xs spacing.$spacing-xs
+    border: borders.$border-thin solid map-get(colors.$colors, "default")
+
+    &.isExtraHeight
+        height: spacing.$spacing-xs * 7
+        padding: spacing.$spacing-2xs spacing.$spacing-xs
+
+    &.primary
+        background-color: map-get(colors.$colors, "default")
+        color: map-get(colors.$colors, "light")
+
+        &:hover
+            background-color: map-get(colors.$colors, "hover")
+            border-color: map-get(colors.$colors, "hover")
+
+        &:active
+            background-color: map-get(colors.$colors, "active")
+            border-color: map-get(colors.$colors, "active")
+
+        &.disabled
+            background-color: map-get(colors.$colors, "primary-disabled")
+            color: map-get(colors.$colors, "disabled-text")
+            border-color: map-get(colors.$colors, "primary-disabled")
+
+    &.standard
+        background: none
+        color: map-get(colors.$colors, "dark")
+
+        &:hover
+            border-color: map-get(colors.$colors, "hover")
+            color: map-get(colors.$colors, "standard-hover-text")
+
+        &:active
+            border-color: map-get(colors.$colors, "active")
+            
+        &.isDisabled
+            color: map-get(colors.$colors, "disabled-text")
+            border-color: map-get(colors.$colors, "standard-disabled-border")
+
+@media (min-width: spacing.$spacing-l * 96) 
+    .button
+        height: spacing.$spacing-xs * 7
+        padding: spacing.$spacing-2xs spacing.$spacing-xs
+
+

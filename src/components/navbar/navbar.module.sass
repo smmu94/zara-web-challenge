@@ -1,0 +1,39 @@
+@use "@styles/colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_typography" as typography
+
+.wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    height: spacing.$spacing-l * 4
+    padding: spacing.$spacing-s * 2 spacing.$spacing-m
+    position: fixed
+    z-index: 100
+    background-color: map-get(colors.$colors, "light")
+    top: 0
+
+    .logo
+        cursor: pointer
+
+    .link
+        display: flex
+        align-items: center
+        justify-content: center
+        height: spacing.$spacing-m * 2
+        gap: spacing.$spacing-2xs
+        cursor: pointer
+
+        .text
+            font-size: typography.$font-size-l
+            line-height: typography.$line-height-sm
+            font-weight: typography.$font-weight-light
+
+@media (min-width: spacing.$spacing-xl * 34.75) 
+    .wrapper
+        padding: spacing.$spacing-s * 2 spacing.$spacing-l * 2
+
+@media (min-width: spacing.$spacing-l * 96) 
+    .wrapper
+        padding: spacing.$spacing-s * 2 spacing.$spacing-l * 5

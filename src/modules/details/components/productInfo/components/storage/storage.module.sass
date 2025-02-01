@@ -1,0 +1,16 @@
+@use "@styles/_typography" as typography
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_borders" as borders
+
+.wrapper
+    background: transparent
+    height: spacing.$spacing-m * 3
+    width: spacing.$spacing-m * 6
+    border: borders.$border-medium solid map-get(colors.$colors, "light-border")
+    padding: spacing.$spacing-m spacing.$spacing-s * 2
+    font-size: typography.$font-size-s
+    line-height: typography.$line-height-xs
+    &.selected
+        border-color: map-get(colors.$colors, "dark")
+    

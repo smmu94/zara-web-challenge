@@ -1,0 +1,145 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-l * 2
+    padding: 0 spacing.$spacing-m
+    margin-top: spacing.$spacing-xl * 2
+
+    .figure
+        position: relative
+        width: spacing.$spacing-l * 13
+        height: spacing.$spacing-l * 13.65
+
+        img
+            width: 100%
+            height: 100%
+
+    .info
+        display: flex
+        flex-direction: column
+        gap: spacing.$spacing-l * 2
+        
+        .title
+            display: flex
+            flex-direction: column
+            gap: spacing.$spacing-s
+            font-weight: typography.$font-weight-light
+
+            .name
+                font-size: typography.$font-size-xl
+                line-height: typography.$line-height-xl
+            
+            .priceFrom
+                font-size: typography.$font-size-m
+                line-height: typography.$line-height-ml
+
+        .selectors
+            display: flex
+            flex-direction: column
+            gap: spacing.$spacing-m * 2
+
+            .storage
+                display: flex
+                flex-direction: column
+                gap: spacing.$spacing-l
+
+                .label
+                    font-weight: typography.$font-weight-light
+                    font-size: typography.$font-size-s
+                    line-height: typography.$line-height-xs
+                
+                .options
+                    display: flex
+
+            .colorOp
+                display: flex
+                flex-direction: column
+                gap: spacing.$spacing-l
+
+                .label
+                    font-weight: typography.$font-weight-light
+                    font-size: typography.$font-size-s
+                    line-height: typography.$line-height-xs
+                
+                .containerOp
+                    display: flex
+                    flex-direction: column
+                    gap: spacing.$spacing-xs
+
+                    .options
+                        display: flex
+                        gap: spacing.$spacing-m
+
+                    .colorName
+                        font-size: typography.$font-size-s
+                        line-height: typography.$line-height-xs
+                        min-height: spacing.$spacing-2xs * 3.5
+                
+        .button
+            background: map-get(colors.$colors, "dark")
+            padding: spacing.$spacing-2xs spacing.$spacing-xs
+            height: spacing.$spacing-m * 3
+            color: map-get(colors.$colors, "light")
+            size: spacing.$spacing-s
+            line-height: typography.$line-height-sm
+            text-align: center
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+    .wrapper
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        align-self:  center
+        width: spacing.$spacing-l * 37.7
+
+        .figure
+            width: spacing.$spacing-l * 17
+            height: spacing.$spacing-l * 20
+
+        .info
+            width: spacing.$spacing-l * 18.1
+
+
+
+@media (min-width: spacing.$spacing-l * 96) 
+    .wrapper
+        width: spacing.$spacing-l * 60
+
+        .figure
+            width: spacing.$spacing-l * 25.5
+            height: spacing.$spacing-l * 31
+
+        .info
+            width: spacing.$spacing-l * 19
+            gap: spacing.$spacing-l * 3.2
+
+            .title
+                .name
+                    font-size: typography.$font-size-2xl
+                    line-height: typography.$line-height-2xl
+                
+                .priceFrom
+                    font-size: typography.$font-size-xl
+                    line-height: typography.$line-height-xl
+
+            .selectors
+                gap: spacing.$spacing-l * 2
+
+                .storage
+                    gap: spacing.$spacing-s * 2
+                    
+                    .label
+                        font-size: typography.$font-size-m
+                        line-height: typography.$line-height-ml
+
+                .colorOp
+                    gap: spacing.$spacing-s * 2
+
+                    .label
+                        font-size: typography.$font-size-m
+                        line-height: typography.$line-height-ml

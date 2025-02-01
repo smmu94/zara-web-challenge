@@ -1,0 +1,60 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
+.wrapper
+    display: flex
+    flex-direction: column
+
+    .back
+        display: flex
+        align-items: center
+        padding: spacing.$spacing-s spacing.$spacing-m
+        gap: spacing.$spacing-2xs
+        font-size: typography.$font-size-s
+        line-height: typography.$line-height-xs
+        position: fixed
+        width: 100%
+        z-index: 100
+        background-color: map-get(colors.$colors, "light")
+        margin-top: - spacing.$spacing-2xs
+
+        .icon
+            height: spacing.$spacing-l
+            width: spacing.$spacing-l
+            display: flex
+            align-items: center
+            justify-content: center
+            font-size: typography.$font-size-xs
+    
+    .content
+        display: flex
+        flex-direction: column
+        gap: spacing.$spacing-l * 4
+
+.error, .loading
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: typography.$font-size-xl
+    margin-top: spacing.$spacing-xl * 2
+
+.error
+    color: map-get(colors.$colors, "error")
+
+@media (min-width: spacing.$spacing-xl * 34.75) 
+    .wrapper
+        .back
+            padding: spacing.$spacing-s spacing.$spacing-l * 2
+
+        .content
+            gap: spacing.$spacing-2xs * 22
+
+@media (min-width: spacing.$spacing-l * 96)
+    .wrapper
+        .back
+            padding: spacing.$spacing-s spacing.$spacing-l * 5
+        
+        .content
+            gap: spacing.$spacing-l * 7.7
+

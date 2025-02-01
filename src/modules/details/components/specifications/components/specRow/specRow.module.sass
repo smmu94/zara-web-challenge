@@ -1,0 +1,21 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_borders" as borders
+@use "@styles/_colors" as colors
+
+.wrapper
+    border-bottom: borders.$border-thin solid map-get(colors.$colors, "dark")
+    padding: spacing.$spacing-m 0
+    display: flex
+    gap: spacing.$spacing-s
+    &.first
+        border-top: borders.$border-thin solid map-get(colors.$colors, "dark")
+
+    .cell
+        width: 50%
+        font-size: typography.$font-size-s
+        line-height: typography.$line-height-xs
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+    .wrapper
+        gap: spacing.$spacing-m * 3

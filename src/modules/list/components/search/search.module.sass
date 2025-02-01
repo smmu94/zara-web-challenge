@@ -1,0 +1,44 @@
+@use "@styles/_typography" as typography
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_borders" as borders
+
+.wrapper
+    width: 100%
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-s
+    padding: spacing.$spacing-s spacing.$spacing-m
+
+    input
+        outline: none
+        border: none
+        height: spacing.$spacing-2xs * 7
+        border-bottom: borders.$border-thin solid map-get(colors.$colors, "dark")
+        padding-bottom: spacing.$spacing-xs
+        font-size: typography.$font-size-l
+        line-height: typography.$line-height-l
+        font-weight: typography.$font-weight-light
+        color: map-get(colors.$colors, "dark")
+        &::placeholder
+            color: map-get(colors.$colors, "placeholder-text")
+        &::-webkit-search-cancel-button
+            appearance: none
+            width: spacing.$spacing-xl
+            height: spacing.$spacing-xl
+            background: url("/assets/remove.svg") no-repeat center
+            background-size: contain
+            cursor: pointer
+    .count
+        height: spacing.$spacing-s * 2
+        font-size: typography.$font-size-s
+        line-height: typography.$line-height-xs
+        font-weight: typography.$font-weight-light
+
+@media (min-width: spacing.$spacing-xl * 34.75) 
+    .wrapper
+        padding: spacing.$spacing-s spacing.$spacing-l * 2
+
+@media (min-width: spacing.$spacing-l * 96) 
+    .wrapper
+        padding: spacing.$spacing-s spacing.$spacing-l * 5

@@ -1,0 +1,45 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+
+.wrapper
+    display: flex
+    flex-direction: column
+    height: 100%
+
+    .items
+        display: flex
+        flex-direction: column
+        padding: spacing.$spacing-s * 2 spacing.$spacing-m
+        gap: spacing.$spacing-s * 2
+        flex-grow: 1
+        height: 100%
+        overflow-y: auto
+
+        .title
+            font-size: typography.$font-size-xl
+            line-height: typography.$line-height-xl
+            font-weight: typography.$font-weight-light
+        
+        .products
+            display: flex
+            flex-direction: column
+            gap: spacing.$spacing-s * 2
+
+            .item
+                list-style: none
+
+@media (min-width: spacing.$spacing-xl * 34.75) 
+    .wrapper
+        .items
+            width: 100%
+            padding: spacing.$spacing-m * 3 spacing.$spacing-l * 2 0 spacing.$spacing-l * 2
+            gap: spacing.$spacing-m * 3
+
+            .products
+                gap: spacing.$spacing-m * 3
+
+@media (min-width: spacing.$spacing-l * 96)
+    .wrapper
+        .items
+            width: 100%
+            padding: spacing.$spacing-m * 3 spacing.$spacing-l * 5 0 spacing.$spacing-l * 5

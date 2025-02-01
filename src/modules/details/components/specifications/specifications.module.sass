@@ -1,0 +1,21 @@
+@use "@styles/_spacing" as spacing
+@use "@styles/_typography" as typography
+
+.wrapper
+    display: flex
+    flex-direction: column
+    gap: spacing.$spacing-l * 2
+    padding: 0 spacing.$spacing-m
+    
+    .title
+        font-size: typography.$font-size-xl
+        line-height: typography.$line-height-xl
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+    .wrapper
+        width: spacing.$spacing-l * 37.7
+        align-self:  center
+
+@media (min-width: spacing.$spacing-l * 96) 
+    .wrapper
+        width: spacing.$spacing-l * 60

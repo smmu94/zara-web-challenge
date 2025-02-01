@@ -1,0 +1,72 @@
+@use "@styles/_borders" as borders
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_typography" as typography
+
+.card
+    display: flex
+    min-width: spacing.$spacing-xs * 43
+    height: spacing.$spacing-xs * 43
+    flex-direction: column
+    border: borders.$border-thin solid map-get(colors.$colors, "dark")
+    border-collapse: collapse
+    padding: spacing.$spacing-m
+    gap: spacing.$spacing-s * 2
+    position: relative
+    overflow: hidden
+
+    &:hover
+        color: map-get(colors.$colors, "light")
+
+    &::after
+        z-index: -1
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        height: 0
+        background-color: map-get(colors.$colors, "dark")
+        transition: height 0.1s ease-out
+
+    &:hover::after
+        height: 100%
+        transition: height 0.8s ease-in
+
+    .figure
+        position: relative
+        width: spacing.$spacing-l * 16.45
+        height: spacing.$spacing-l * 13
+
+        img
+            width: 100%
+            height: 100%
+
+    .info
+        display: flex
+        flex-direction: column
+        gap: spacing.$spacing-2xs
+
+        .title
+            font-size: typography.$font-size-xs
+            line-height: typography.$line-height-2xs
+            font-weight: typography.$font-weight-light
+            color: map-get(colors.$colors, "title-text")
+
+        .description
+            display: flex
+            justify-content: space-between
+            font-size: typography.$font-size-s
+            line-height: typography.$line-height-xs
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+    .card
+        .figure
+            width: spacing.$spacing-l * 17.5
+            height: spacing.$spacing-l * 14.5
+  
+@media (min-width: spacing.$spacing-l * 96)
+    .card
+        .figure
+            width: spacing.$spacing-l * 15.6
+            height: spacing.$spacing-l * 12.85

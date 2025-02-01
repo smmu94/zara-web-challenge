@@ -1,0 +1,56 @@
+@use "@styles/_spacing" as spacing
+@use "@styles/_typography" as typography
+
+.wrapper
+  display: flex
+  flex-direction: column
+  gap: spacing.$spacing-s * 2
+  padding: spacing.$spacing-m spacing.$spacing-m spacing.$spacing-s * 2 spacing.$spacing-m
+  flex-shrink: 0
+
+  .total
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-size: typography.$font-size-m
+    line-height: typography.$line-height-m
+    font-weight: typography.$font-weight-regular
+
+  .actions
+    display: flex
+    gap: spacing.$spacing-s
+
+@media (min-width: spacing.$spacing-xl * 34.75)
+  .wrapper
+    padding: spacing.$spacing-s * 2 spacing.$spacing-l * 2 spacing.$spacing-l * 2 spacing.$spacing-l * 2
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    .continue
+        width: spacing.$spacing-l * 10
+
+    .pay
+        display: flex
+
+        .total
+            width: spacing.$spacing-l * 10
+            padding-right: spacing.$spacing-xs * 7
+
+        button
+            width: spacing.$spacing-l * 10
+
+@media (min-width: spacing.$spacing-l * 96)
+  .wrapper
+    padding: spacing.$spacing-s * 2 spacing.$spacing-l * 5 spacing.$spacing-xs * 7 spacing.$spacing-l * 5
+
+    .continue
+        width: spacing.$spacing-l * 13
+
+    .pay
+        .total
+            width: spacing.$spacing-l * 13
+            padding-right: spacing.$spacing-l * 4
+
+        button
+            width: spacing.$spacing-l * 13

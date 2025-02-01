@@ -3,6 +3,8 @@ import tsparser from "@typescript-eslint/parser";
 import tsplugin from "@typescript-eslint/eslint-plugin";
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginPrettier from "eslint-plugin-prettier";
+import eslintPluginJsxA11y from "eslint-plugin-jsx-a11y";
+import js from "@eslint/js";
 
 export default [
   {
@@ -14,6 +16,7 @@ export default [
       "typescript-eslint": tsplugin,
       react: eslintPluginReact,
       prettier: eslintPluginPrettier,
+      "jsx-a11y": eslintPluginJsxA11y,
     },
     rules: {
       semi: ["error", "always"],
@@ -29,6 +32,10 @@ export default [
       "keyword-spacing": "error",
       "keyword-spacing": "error",
       "react/prop-types": "off",
+      "jsx-a11y/alt-text": "error",
+      "jsx-a11y/label-has-associated-control": "error",
+      "jsx-a11y/click-events-have-key-events": "error",
+      "jsx-a11y/interactive-supports-focus": "error",
     },
   },
   {
@@ -36,7 +43,6 @@ export default [
       react: {
         version: "17.0",
       },
-      
     },
   },
 ];
