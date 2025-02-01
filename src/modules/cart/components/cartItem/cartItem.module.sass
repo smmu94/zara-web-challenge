@@ -1,14 +1,22 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
 .wrapper
     display: flex
-    column-gap: 24px
+    column-gap: spacing.$spacing-s * 2
 
-    .image
-        width: 160px
-        height: auto
-        object-fit: contain
+    .figure
+        position: relative
+        width: spacing.$spacing-m * 10
+        height: spacing.$spacing-l * 10
+
+        img
+            width: 100%
+            height: 100%
 
     .details
-        padding: 40px 0
+        padding: spacing.$spacing-l * 2 0
         display: flex
         flex-direction: column
         justify-content: space-between
@@ -16,38 +24,38 @@
         .info
             display: flex
             flex-direction: column
-            gap: 20px
+            gap: spacing.$spacing-l
 
             .text
-                gap: 4px
-                font-size: 12px
-                line-height: 14.51px
+                gap: spacing.$spacing-2xs
+                font-size: typography.$font-size-s
+                line-height: typography.$line-height-xs
 
             .price
-                font-size: 12px
-                line-height: 14.51px
+                font-size: typography.$font-size-s
+                line-height: typography.$line-height-xs
         
         .delete
             all: unset
-            color: #DF0000
-            font-size: 12px
-            line-height: 14.51px
+            color: map-get(colors.$colors, "error")
+            font-size: typography.$font-size-s
+            line-height: typography.$line-height-xs
 
-@media (min-width: 834px) 
+@media (min-width: spacing.$spacing-xl * 34.75) 
     .wrapper
         width: 100%
-        gap: 40px
+        gap: spacing.$spacing-l * 2
 
-        .image
-            width: 262px
-            height: auto
+        .figure
+            width: spacing.$spacing-l * 13
+            height: spacing.$spacing-l * 16
 
         .details
             flex-grow: 1
 
-@media (min-width: 1920px)
+@media (min-width: spacing.$spacing-l * 96)
     .wrapper
-        width: 548px
+        width: spacing.$spacing-l * 27.4
 
         .details
             flex-grow: 1

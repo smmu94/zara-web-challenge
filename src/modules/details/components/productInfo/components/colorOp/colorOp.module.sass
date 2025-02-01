@@ -1,12 +1,16 @@
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_borders" as borders
+
 .wrapper
-    width: 24px
-    height: 24px
+    width: spacing.$spacing-s * 2
+    height: spacing.$spacing-s * 2
     display: flex
     align-items: center
     justify-content: center
-    border: 1px solid #CCCCCC
+    border: borders.$border-medium solid map-get(colors.$colors, "light-border")
     &.selected
-        border-color: #000000
+        border-color: map-get(colors.$colors, "dark")
     .color
-        width: 20px
-        height: 20px
+        width: spacing.$spacing-l
+        height: spacing.$spacing-l

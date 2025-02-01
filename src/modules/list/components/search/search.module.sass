@@ -1,33 +1,44 @@
+@use "@styles/_typography" as typography
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_borders" as borders
+
 .wrapper
     width: 100%
     display: flex
     flex-direction: column
-    gap: 12px
-    padding: 12px 16px
+    gap: spacing.$spacing-s
+    padding: spacing.$spacing-s spacing.$spacing-m
 
     input
         outline: none
         border: none
-        height: 27px
-        border-bottom: 0.5px solid #000000
-        padding-bottom: 8px
-        font-size: 16px
-        line-height: 19.34px
-        font-weight: 300
-        color: #000000
-        ::placeholder
-            color: #AAAAAA
-
+        height: spacing.$spacing-2xs * 7
+        border-bottom: borders.$border-thin solid map-get(colors.$colors, "dark")
+        padding-bottom: spacing.$spacing-xs
+        font-size: typography.$font-size-l
+        line-height: typography.$line-height-l
+        font-weight: typography.$font-weight-light
+        color: map-get(colors.$colors, "dark")
+        &::placeholder
+            color: map-get(colors.$colors, "placeholder-text")
+        &::-webkit-search-cancel-button
+            appearance: none
+            width: spacing.$spacing-xl
+            height: spacing.$spacing-xl
+            background: url("/assets/remove.svg") no-repeat center
+            background-size: contain
+            cursor: pointer
     .count
-        height: 24px
-        font-size: 12px
-        line-height: 14.51px
-        font-weight: 300
+        height: spacing.$spacing-s * 2
+        font-size: typography.$font-size-s
+        line-height: typography.$line-height-xs
+        font-weight: typography.$font-weight-light
 
-@media (min-width: 834px) 
+@media (min-width: spacing.$spacing-xl * 34.75) 
     .wrapper
-        padding: 12px 40px
+        padding: spacing.$spacing-s spacing.$spacing-l * 2
 
-@media (min-width: 1920px) 
+@media (min-width: spacing.$spacing-l * 96) 
     .wrapper
-        padding: 12px 100px
+        padding: spacing.$spacing-s spacing.$spacing-l * 5

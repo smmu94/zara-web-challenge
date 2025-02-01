@@ -1,40 +1,47 @@
+@use "@styles/_typography" as typography
+@use "@styles/_spacing" as spacing
+@use "@styles/_colors" as colors
+
 .wrapper
     display: flex
     flex-direction: column
-    gap: 40px
-    padding: 0 16px 80px
+    gap: spacing.$spacing-l * 2
+    padding: 0 spacing.$spacing-m spacing.$spacing-l * 4
     
     .title
-        font-size: 20px
-        line-height: 24.18px
+        font-size: typography.$font-size-xl
+        line-height: typography.$line-height-xl
     
     .carrousel
         display: flex
         overflow-x: auto
         scroll-behavior: smooth
         -webkit-overflow-scrolling: touch
-        padding-bottom: 40px
+        padding-bottom: spacing.$spacing-l * 2
 
         &::-webkit-scrollbar
-            height: 1px
+            height: spacing.$spacing-2xs * 0.25
 
         &::-webkit-scrollbar-thumb
-            background-color: #000000
+            background-color: map-get(colors.$colors, "dark")
 
         &::-webkit-scrollbar-track
-            background-color: #CCCCCC
+            background-color: map-get(colors.$colors, "light-border")
 
-@media (min-width: 834px)
+        li
+            list-style: none
+
+@media (min-width: spacing.$spacing-xl * 34.75)
     .wrapper
-        width: 754px
+        width: spacing.$spacing-l * 37.7
         align-self:  center
 
         .carrousel
-            padding-bottom: 80px
+            padding-bottom: spacing.$spacing-l * 4
 
-@media (min-width: 1920px) 
+@media (min-width: spacing.$spacing-l * 96) 
     .wrapper
-        width: 1200px
+        width: spacing.$spacing-l * 60
 
         .carrousel
-            padding-bottom: 104px
+            padding-bottom: spacing.$spacing-l * 5.2

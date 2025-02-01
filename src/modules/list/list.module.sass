@@ -1,16 +1,18 @@
+@use "@styles/_spacing" as spacing
+
 .wrapper
     display: flex
     flex-direction: column
     align-items: center
-    gap: 24px
-    padding: 24px 0
+    gap: spacing.$spacing-s * 2
+    padding: spacing.$spacing-s * 2 0
 
-@media (min-width: 834px) 
+@media (min-width: spacing.$spacing-xl * 34.75) 
     .wrapper
-        padding-top: 48px
-        gap: 48px
+        padding-top: spacing.$spacing-m * 3
+        gap: spacing.$spacing-m * 3
 
-@media (min-width: 1920px) 
+@media (min-width: spacing.$spacing-l * 96) 
     .wrapper
-        padding-top: 48px
-        gap: 48px
+        padding-top: spacing.$spacing-m * 3
+        gap: spacing.$spacing-m * 3

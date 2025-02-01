@@ -1,42 +1,55 @@
+@use "@styles/_borders" as borders
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+
 .button
     display: flex
     justify-content: center
     align-items: center
     width: 100%
-    height: 48px
-    padding: 4px 7px
-    border: 0.5px solid #1B1A18
-    &.isExtraHeight
-        height: 56px
-        padding: 5px 7px
-    &.primary
-        background-color: #1B1A18
-        color: #FFFFFF
-        &:hover
-            background-color: #282624
-            border-color: #282624
-        &:active
-            background-color: #363331
-            border-color: #363331
-        &.disabled
-            background-color: #F3F2F2
-            color: #C2BFBC
-            border-color: #F3F2F2
-    &.standart
-        background: none
-        color: #000000
-        &:hover
-            border-color: #282624
-            color: #504D49
-        &:active
-            border-color: #363331
-        &.isDisabled
-            color: #C2BFBC
-            border-color: #DBD9D7
+    height: spacing.$spacing-m * 3
+    padding: spacing.$spacing-2xs spacing.$spacing-xs
+    border: borders.$border-thin solid map-get(colors.$colors, "default")
 
-@media (min-width: 1920px) 
+    &.isExtraHeight
+        height: spacing.$spacing-xs * 7
+        padding: spacing.$spacing-2xs spacing.$spacing-xs
+
+    &.primary
+        background-color: map-get(colors.$colors, "default")
+        color: map-get(colors.$colors, "light")
+
+        &:hover
+            background-color: map-get(colors.$colors, "hover")
+            border-color: map-get(colors.$colors, "hover")
+
+        &:active
+            background-color: map-get(colors.$colors, "active")
+            border-color: map-get(colors.$colors, "active")
+
+        &.disabled
+            background-color: map-get(colors.$colors, "primary-disabled")
+            color: map-get(colors.$colors, "disabled-text")
+            border-color: map-get(colors.$colors, "primary-disabled")
+
+    &.standard
+        background: none
+        color: map-get(colors.$colors, "dark")
+
+        &:hover
+            border-color: map-get(colors.$colors, "hover")
+            color: map-get(colors.$colors, "standard-hover-text")
+
+        &:active
+            border-color: map-get(colors.$colors, "active")
+            
+        &.isDisabled
+            color: map-get(colors.$colors, "disabled-text")
+            border-color: map-get(colors.$colors, "standard-disabled-border")
+
+@media (min-width: spacing.$spacing-l * 96) 
     .button
-        height: 56px
-        padding: 5px 7px
+        height: spacing.$spacing-xs * 7
+        padding: spacing.$spacing-2xs spacing.$spacing-xs
 
 

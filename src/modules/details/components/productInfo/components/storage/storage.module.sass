@@ -1,10 +1,16 @@
+@use "@styles/_typography" as typography
+@use "@styles/_colors" as colors
+@use "@styles/_spacing" as spacing
+@use "@styles/_borders" as borders
+
 .wrapper
-    height: 48px
-    width: fit-content
-    border: 1px solid #CCCCCC
-    padding: 16.5px 24px
-    font-size: 12px
-    line-height: 14.51px
+    background: transparent
+    height: spacing.$spacing-m * 3
+    width: spacing.$spacing-m * 6
+    border: borders.$border-medium solid map-get(colors.$colors, "light-border")
+    padding: spacing.$spacing-m spacing.$spacing-s * 2
+    font-size: typography.$font-size-s
+    line-height: typography.$line-height-xs
     &.selected
-        border-color: #000000
+        border-color: map-get(colors.$colors, "dark")
     
