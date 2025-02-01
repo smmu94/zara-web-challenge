@@ -7,20 +7,22 @@ import PayResume from "./components/payResume";
 export default function CartView() {
   const { selectedProducts } = useContext(SelectedProductsContext);
   return (
-    <div className={styles.wrapper} data-testid="cart-view">
+    <section className={styles.wrapper} data-testid="cart-view">
       <div className={styles.items}>
-        <p className={styles.title}>CART {`(${selectedProducts.length})`}</p>
-        <div className={styles.products}>
+        <p className={styles.title} id="card-title">
+          CART ({selectedProducts.length})
+        </p>
+        <ul className={styles.products} aria-labelledby="card-title">
           {selectedProducts.map((product) => (
-            <div key={product.id} className={styles.item}>
+            <li key={product.id} className={styles.item}>
               <CartItem {...product} />
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       <footer>
         <PayResume />
       </footer>
-    </div>
+    </section>
   );
 }

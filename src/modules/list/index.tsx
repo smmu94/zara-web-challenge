@@ -5,9 +5,9 @@ import Search from "./components/search";
 
 export default function ListView() {
   return (
-    <div className={styles.wrapper} data-testid="list-view">
+    <section className={styles.wrapper} data-testid="list-view" aria-label="list-view" role="region"> 
       <Search />
       <Cards />
-    </div>
+    </section>
   );
 }

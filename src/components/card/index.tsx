@@ -5,7 +5,13 @@ import routes from "@utils/routes";
 import { useRouter } from "next/router";
 import { CardProps } from "./types";
 
-export default function Card({ id, imageUrl, name, brand, basePrice }: CardProps) {
+export default function Card({
+  id,
+  imageUrl,
+  name,
+  brand,
+  basePrice,
+}: CardProps) {
   const router = useRouter();
   const goToDetailsView = useCallback((id) => {
     router.push({
@@ -19,22 +25,27 @@ export default function Card({ id, imageUrl, name, brand, basePrice }: CardProps
       className={styles.card}
       onClick={() => goToDetailsView(id)}
       data-testid="card"
+      aria-label="product card"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === "Enter" && goToDetailsView(id)}
     >
-      <Image
-        src={imageUrl}
-        alt={name}
-        width={329}
-        height={257}
-        objectFit="contain"
-        priority
-      />
-      <div className={styles.info}>
-        <h2 className={styles.title}>{brand.toUpperCase()}</h2>
+      <figure className={styles.figure}>
+        <Image
+          src={imageUrl}
+          alt={name}
+          objectFit="contain"
+          layout="fill"
+          priority
+        />
+      </figure>
+      <section className={styles.info}>
+        <p className={styles.title}>{brand.toUpperCase()}</p>
         <span className={styles.description}>
           <p>{name.toUpperCase()}</p>
           <p>{basePrice} EUR</p>
         </span>
-      </div>
+      </section>
     </div>
   );
 }

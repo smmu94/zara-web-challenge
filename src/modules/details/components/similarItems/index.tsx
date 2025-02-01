@@ -10,20 +10,23 @@ export default function SimilarItems() {
   }
 
   return (
-    <div className={styles.wrapper} data-testid="detailsView-similarItems">
-      <p className={styles.title}>SIMILAR ITEMS</p>
-      <div className={styles.carrousel}>
-        {product.similarProducts.map((item) => (
-          <Card
-            key={item.id}
-            basePrice={item.basePrice}
-            brand={item.brand}
-            id={item.id}
-            imageUrl={item.imageUrl}
-            name={item.name}
-          />
+    <article className={styles.wrapper} data-testid="detailsView-similarItems">
+      <p className={styles.title} id="similar-items">
+        SIMILAR ITEMS
+      </p>
+      <ul className={styles.carrousel} aria-labelledby="similar-items">
+        {product.similarProducts.map((item, i) => (
+          <li key={`${item.id}-${i}`}>
+            <Card
+              basePrice={item.basePrice}
+              brand={item.brand}
+              id={item.id}
+              imageUrl={item.imageUrl}
+              name={item.name}
+            />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </article>
   );
 }

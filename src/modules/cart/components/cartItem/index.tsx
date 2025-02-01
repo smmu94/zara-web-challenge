@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from "./cartItem.module.sass";
 import { CartItemProps } from "./types";
 import { SelectedProductsContext } from "@contexts/selectedProductsContext";
+import Image from "next/image";
 
 export default function CartItem({ color, id, storage, name }: CartItemProps) {
   const { setSelectedProducts } = useContext(SelectedProductsContext);
@@ -9,9 +10,21 @@ export default function CartItem({ color, id, storage, name }: CartItemProps) {
     setSelectedProducts((prev) => prev.filter((product) => product.id !== id));
   };
   return (
-    <div className={styles.wrapper} data-testid="cart-item">
-      <img src={color.imageUrl} alt={`${name} ${color.name}`} className={styles.image} />
-      <div className={styles.details}>
+    <article
+      className={styles.wrapper}
+      data-testid="cart-item"
+      aria-label="cart-item"
+    >
+      <figure className={styles.figure}>
+        <Image
+          src={color.imageUrl}
+          alt={`${name} ${color.name}`}
+          priority
+          objectFit="contain"
+          layout="fill"
+        />
+      </figure>
+      <section className={styles.details}>
         <div className={styles.info}>
           <div className={styles.text}>
             <p>{name.toUpperCase()}</p>
@@ -21,10 +34,14 @@ export default function CartItem({ color, id, storage, name }: CartItemProps) {
           </div>
           <div className={styles.price}>{storage.price} EUR</div>
         </div>
-        <button onClick={handleDelete} className={styles.delete}>
+        <button
+          onClick={handleDelete}
+          className={styles.delete}
+          aria-label="delete-button"
+        >
           Eliminar
         </button>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }

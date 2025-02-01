@@ -13,12 +13,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <SelectedProductsProvider>
         <ProductsListProvider>
-          <div>
+          <main role="main" aria-labelledby="main-content">
             <Navbar />
             <div className="container">
               <Component {...pageProps} />
             </div>
-          </div>
+          </main>
         </ProductsListProvider>
       </SelectedProductsProvider>
     </QueryClientProvider>

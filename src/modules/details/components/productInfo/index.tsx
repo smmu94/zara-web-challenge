@@ -9,6 +9,7 @@ import { SelectedProductsContext } from "@contexts/selectedProductsContext";
 import { useRouter } from "next/router";
 import routes from "@utils/routes";
 import { useGetQueryDetails } from "@modules/details/hooks/useGetQueryDetails";
+import Image from "next/image";
 
 export default function ProductInfo() {
   const router = useRouter();
@@ -26,7 +27,6 @@ export default function ProductInfo() {
   if (!product) {
     return null;
   }
-  const defaultImage = product.colorOptions[0].imageUrl;
 
   const addToCart = () => {
     const newProduct = {
@@ -38,20 +38,31 @@ export default function ProductInfo() {
     router.push(routes.cart.main);
   };
 
+  const defaultImage = product.colorOptions[0].imageUrl;
+
   return (
-    <div className={styles.wrapper} data-testid="detailsView-productInfo">
-      <img
-        className={styles.image}
-        src={imageUrl || defaultImage}
-        alt={product.name}
-      />
-      <div className={styles.info}>
-        <span className={styles.title}>
+    <article
+      className={styles.wrapper}
+      data-testid="detailsView-productInfo"
+      aria-labelledby="product-info-title"
+    >
+      <figure className={styles.figure}>
+        <Image
+          src={imageUrl || defaultImage}
+          alt={product.name}
+          aria-describedby="product-info-description"
+          layout="fill"
+          objectFit="contain"
+          priority
+        />
+      </figure>
+      <section className={styles.info}>
+        <header className={styles.title} id="product-info-title">
           <p className={styles.name}>{product.name.toUpperCase()}</p>
           <p className={styles.priceFrom}>
             {!storage.price ? `From ${product.basePrice}` : storage.price} EUR
           </p>
-        </span>
+        </header>
         <div className={styles.selectors}>
           <Controller
             name="storage"
@@ -68,6 +79,7 @@ export default function ProductInfo() {
                       id={`storage-${storage.capacity}`}
                       storage={storage.capacity}
                       isSelected={field.value.capacity === storage.capacity}
+                      aria-cheked={field.value.capacity === storage.capacity}
                       onClick={() => setValue("storage", storage)}
                     />
                   ))}
@@ -91,22 +103,28 @@ export default function ProductInfo() {
                         id={`color-${colorOp.name}`}
                         color={colorOp.hexCode}
                         isSelected={field.value.name === colorOp.name}
+                        aria-checked={field.value.name === colorOp.name}
                         onClick={() => setValue("color", colorOp)}
                       />
                     ))}
                   </div>
-                  {!!field.value.name && (
-                    <p className={styles.colorName}>{field.value.name}</p>
-                  )}
+                  <p className={styles.colorName} aria-live="polite">
+                    {!!field.value.name ? field.value.name : ""}
+                  </p>
                 </div>
               </div>
             )}
           />
         </div>
-        <Button onClick={addToCart} style="Primary" isDisabled={!enabledButton}>
+        <Button
+          onClick={addToCart}
+          style="Primary"
+          isDisabled={!enabledButton}
+          ariaLabel="add-to-cart"
+        >
           AÑADIR
         </Button>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }

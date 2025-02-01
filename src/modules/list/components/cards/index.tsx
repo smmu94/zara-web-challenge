@@ -30,11 +30,11 @@ export default function Cards() {
   }
 
   return (
-    <div className={styles.wrapper} data-testid="ListView-Cards">
+    <section className={styles.wrapper} data-testid="ListView-Cards" aria-label="list-view-cards" role="list">
       {!!productsList.length &&
-        productsList.map((phone) => (
+        productsList.map((phone, i) => (
           <Card
-            key={phone.id}
+            key={`${phone.id}-${i}`}
             id={phone.id}
             imageUrl={phone.imageUrl}
             name={phone.name}
@@ -42,6 +42,6 @@ export default function Cards() {
             basePrice={phone.basePrice}
           />
         ))}
-    </div>
+    </section>
   );
 }

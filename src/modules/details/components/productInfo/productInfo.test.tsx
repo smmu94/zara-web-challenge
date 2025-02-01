@@ -75,7 +75,7 @@ describe("ProductInfo", () => {
     expect(screen.getAllByTestId("productInfo-colorOp")).toHaveLength(
       mockDetails.colorOptions.length
     );
-    const addToCartButton = screen.getByRole("button");
+    const addToCartButton = screen.getByText("AÑADIR");
     expect(addToCartButton).toBeInTheDocument();
     expect(addToCartButton).toBeDisabled();
   });

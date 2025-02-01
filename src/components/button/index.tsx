@@ -8,17 +8,20 @@ export default function Button({
   onClick,
   isExtraHeight = false,
   children,
+  ariaLabel = ""
 }: ButtonProps) {
   return (
     <button
       className={`
                 ${styles.button}
-                ${style === "Primary" ? styles.primary : styles.standart}
+                ${style === "Primary" ? styles.primary : styles.standard}
                 ${isExtraHeight ? styles.extraHeight : ""}
                 ${isDisabled ? styles.disabled : ""}
             `}
       disabled={isDisabled}
       onClick={onClick}
+      aria-label={ariaLabel}
+      aria-disabled={isDisabled}
     >
       {children}
     </button>

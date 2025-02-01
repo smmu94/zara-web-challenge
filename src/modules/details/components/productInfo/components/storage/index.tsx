@@ -9,13 +9,14 @@ export default function Storage({
   id
 }: StorageProps) {
   return (
-    <div
+    <button
       className={`${styles.wrapper} ${isSelected ? styles.selected : ""}`}
       onClick={onClick}
       id={id}
       data-testid="productInfo-storage"
+      aria-label="product-storage"
     >
       {storage}
-    </div>
+    </button>
   );
 }

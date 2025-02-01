@@ -4,16 +4,17 @@ import { ColorOpProps } from "./types";
 
 export default function ColorOp({ color, isSelected, onClick, id }: ColorOpProps) {
   return (
-    <div
+    <button
       className={`${styles.wrapper} ${isSelected ? styles.selected : ""}`}
       onClick={onClick}
       id={id}
       data-testid="productInfo-colorOp"
+      aria-label="product-color"
     >
-      <div
+      <span
         style={{ backgroundColor: color }}
         className={styles.color}
       />
-    </div>
+    </button>
   );
 }

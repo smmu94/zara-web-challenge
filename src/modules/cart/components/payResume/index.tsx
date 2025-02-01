@@ -21,7 +21,7 @@ export default function PayResume() {
       window.removeEventListener("resize", checkIfMobile);
     };
   }, []);
-  
+
   const getTotal = () => {
     return selectedProducts.reduce(
       (acc, product) => acc + product.storage.price,
@@ -41,8 +41,8 @@ export default function PayResume() {
   );
 
   const renderButtons = () => (
-    <div className={styles.actions}>
-      <Button onClick={goToListView} style="Standart">
+    <nav className={styles.actions}>
+      <Button onClick={goToListView} style="Standard">
         CONTINUE SHOPPING
       </Button>
       {!!selectedProducts.length && (
@@ -50,11 +50,11 @@ export default function PayResume() {
           PAY
         </Button>
       )}
-    </div>
+    </nav>
   );
 
   return (
-    <div className={styles.wrapper} data-testid="payResume">
+    <section className={styles.wrapper} data-testid="payResume" aria-label="pay-resume">
       {isMobile ? (
         <>
           {!!selectedProducts.length && renderTotal()}
@@ -63,20 +63,20 @@ export default function PayResume() {
       ) : (
         <>
           <div className={styles.continue}>
-            <Button onClick={goToListView} style="Standart">
+            <Button onClick={goToListView} style="Standard" ariaLabel="continue-shopping">
               CONTINUE SHOPPING
             </Button>
           </div>
           {!!selectedProducts.length && (
             <div className={styles.pay}>
               {renderTotal()}
-              <Button onClick={noop} style="Primary">
+              <Button onClick={noop} style="Primary" ariaLabel="pay">
                 PAY
               </Button>
             </div>
           )}
         </>
       )}
-    </div>
+    </section>
   );
 }

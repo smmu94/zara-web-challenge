@@ -1,4 +1,4 @@
-type ButtonStyle = "Standart" | "Primary";
+type ButtonStyle = "Standard" | "Primary";
 
 export type ButtonProps = {
     style: ButtonStyle;
@@ -6,4 +6,5 @@ export type ButtonProps = {
     onClick: () => void;
     isExtraHeight?: boolean;
     children: string;
+    ariaLabel?: string;
 }

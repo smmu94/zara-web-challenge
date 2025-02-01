@@ -20,14 +20,16 @@ export default function Search() {
   };
 
   return (
-    <div className={styles.wrapper} data-testid="ListView-Search">
+    <section className={styles.wrapper} data-testid="ListView-Search" aria-label="list-view-search">
+      <label htmlFor="search-input" aria-label="search-input"/>
       <input
+        id="search-input"
         type="search"
         placeholder="Search for a smartphone..."
         value={inputValue}
         onChange={handleChange}
       />
-      <p className={styles.count}>{productsList.length} RESULTS</p>
-    </div>
+      <p className={styles.count} aria-live="polite">{productsList.length} RESULTS</p>
+    </section>
   );
 }

@@ -11,9 +11,9 @@ export default function Specifications() {
   }
   const spectContent = getSpecContent(product);
   return (
-    <div className={styles.wrapper} data-testid="detailsView-specifications">
+    <article className={styles.wrapper} data-testid="detailsView-specifications">
       <p className={styles.title}>SPECIFICATIONS</p>
-      <div className={styles.content}>
+      <section className={styles.content}>
         {spectContent.map((spec, i) => (
           <SpecRow
             key={spec.title}
@@ -22,7 +22,7 @@ export default function Specifications() {
             isFirst={i === 0}
           />
         ))}
-      </div>
-    </div>
+      </section>
+    </article>
   );
 }
