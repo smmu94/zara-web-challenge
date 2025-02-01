@@ -7,8 +7,8 @@ import { faker } from "@faker-js/faker/.";
 import routes from "@utils/routes";
 
 const props: CardProps = {
-  id: faker.string.uuid(),
-  imageUrl: faker.image.url(),
+  id: faker.datatype.uuid(),
+  imageUrl: faker.image.imageUrl(),
   name: faker.commerce.productName(),
   brand: faker.commerce.productName(),
   basePrice: +faker.commerce.price(),

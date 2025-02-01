@@ -8,7 +8,7 @@ const mockStorage: StorageProps = {
   storage: faker.word.noun(),
   isSelected: false,
   onClick: jest.fn(),
-  id: faker.string.uuid(),
+  id: faker.datatype.uuid(),
 };
 
 describe("productInfo - Storage", () => {

@@ -8,7 +8,7 @@ const mockColorOp: ColorOpProps = {
   color: faker.color.rgb(),
   isSelected: false,
   onClick: jest.fn(),
-  id: faker.string.uuid(),
+  id: faker.datatype.uuid(),
 };
 
 describe("productInfo - ColorOp", () => {

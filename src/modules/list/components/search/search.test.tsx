@@ -10,11 +10,11 @@ import { faker } from "@faker-js/faker/.";
 const currentList: ProductListBody = [
   ...listMock,
   {
-    id: faker.string.uuid(),
+    id: faker.datatype.uuid(),
     brand: faker.lorem.sentence(),
     name: "name",
     basePrice: +faker.commerce.price(),
-    imageUrl: faker.image.url(),
+    imageUrl: faker.image.imageUrl(),
   },
 ];
 

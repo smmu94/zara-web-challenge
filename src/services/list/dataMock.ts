@@ -3,14 +3,14 @@ import { ProductListBody, QueryParams } from "./types";
 
 export const queryParamsMock: QueryParams = {
   search: faker.lorem.sentence(),
-  limit: faker.number.int(),
-  offset: faker.number.int(),
+  limit: faker.datatype.number(),
+  offset: faker.datatype.number(),
 };
 
 export const listMock: ProductListBody = Array.from({ length: 10 }, () => ({
-  id: faker.string.uuid(),
+  id: faker.datatype.uuid(),
   brand: faker.lorem.sentence(),
   name: faker.commerce.productName(),
   basePrice: +faker.commerce.price(),
-  imageUrl: faker.image.url()
+  imageUrl: faker.image.imageUrl()
 }));

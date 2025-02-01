@@ -2,15 +2,15 @@ import { SelectedProduct } from "@contexts/selectedProductsContext/types";
 import { faker } from "@faker-js/faker/.";
 
 export const mockProduct: SelectedProduct = {
-  id: faker.string.uuid(),
+  id: faker.datatype.uuid(),
   name: faker.commerce.productName(),
   color: {
     hexCode: faker.color.rgb(),
     name: faker.color.human(),
-    imageUrl: faker.image.url(),
+    imageUrl: faker.image.imageUrl(),
   },
   storage: {
-    capacity: faker.number.int().toString(),
+    capacity: faker.random.numeric(),
     price: +faker.commerce.price(),
   },
 };  

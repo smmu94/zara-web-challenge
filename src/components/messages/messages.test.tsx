@@ -5,12 +5,12 @@ import { render, screen } from "@testing-library/react";
 
 describe("Messages", () => {
   it("Messages: should render default", () => {
-    const message = faker.word.words();
+    const message = faker.word.adjective();
     render(<Messages message={message} />);
     expect(screen.getByText(message)).toBeInTheDocument();
   });
   it("Messages: should render error message", () => {
-    const errorMessage = faker.word.words();
+    const errorMessage = faker.word.adjective();
     render(<Messages message={errorMessage} isError />);
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
     expect(screen.getByRole("contentinfo")).toHaveClass("error");

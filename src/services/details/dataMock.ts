@@ -2,42 +2,42 @@ import { faker } from "@faker-js/faker/.";
 import { ProductDetailsBody } from "./types";
 
 export const detailsMock: ProductDetailsBody = {
-  id: faker.string.uuid(),
+  id: faker.datatype.uuid(),
   brand: faker.company.name(),
   name: faker.commerce.productName(),
   description: faker.lorem.paragraph(),
   basePrice: +faker.commerce.price(),
-  rating: faker.number.int(),
+  rating: faker.datatype.number(),
   specs: {
-    screen: faker.word.words(),
-    resolution: faker.word.words(),
-    processor: faker.word.words(),
-    mainCamera: faker.word.words(),
-    selfieCamera: faker.word.words(),
-    battery: faker.word.words(),
-    os: faker.word.words(),
-    screenRefreshRate: faker.word.words(),
+    screen: faker.word.adjective(),
+    resolution: faker.word.adjective(),
+    processor: faker.word.adjective(),
+    mainCamera: faker.word.adjective(),
+    selfieCamera: faker.word.adjective(),
+    battery: faker.word.adjective(),
+    os: faker.word.adjective(),
+    screenRefreshRate: faker.word.adjective(),
   },
   colorOptions: [
     {
-      name: faker.word.words(),
-      hexCode: faker.string.hexadecimal(),
-      imageUrl: faker.image.url(),
+      name: faker.word.adjective(),
+      hexCode: faker.internet.color(),
+      imageUrl: faker.image.imageUrl(),
     },
   ],
   storageOptions: [
     {
-      capacity: faker.word.words(),
+      capacity: faker.word.adjective(),
       price: +faker.commerce.price(),
     },
   ],
   similarProducts: [
     {
-      id: faker.string.uuid(),
+      id: faker.datatype.uuid(),
       brand: faker.company.name(),
       name: faker.commerce.productName(),
       basePrice: +faker.commerce.price(),
-      imageUrl: faker.image.url(),
+      imageUrl: faker.image.imageUrl(),
     },
   ],
 };
