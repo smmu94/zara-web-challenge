@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mobile Phone Catalog Web Application
 
+## Description
+
+This project is a web application focused on visualizing, searching, and managing a catalog of mobile phones. The app allows users to view detailed information about each device and efficiently manage their shopping cart.
+
+### Features:
+- **Phone List View**: Displays a grid of phone cards showing the image, name, brand, and base price of each phone. Users can filter the phones by name or brand using a real-time search bar.
+- **Phone Detail View**: Shows detailed information for each selected phone, including dynamic image selection, color, storage options, price updates, and technical specifications. Users can add the phone to the cart.
+- **Shopping Cart View**: Displays the phones added to the cart with their image, name, specifications, and price. Users can remove items from the cart and view the total cost.
+
+## Tech Stack
+
+- **Frontend**: React.js (v17), Sass (for styling), React Context API for state management, and Jest for testing.
+- **Backend**: Node.js (v18), with API integration for phone data.
+- **Local Storage**: Used to persist the shopping cart data across page refreshes.
+
+## Architecture
+
+The project follows a **modular architecture** with the following structure:
+
+```sh
+    /pages                   # Pages (home, details, cart)
+    /src
+        /components          # Reusable components (cards, button, etc.)
+        /contexts            # React contexts to manage cart and products
+        /modules             # Feature-based modules containing related logic and components
+        /services            # Services for communication with the API
+        /utils               # Utility functions and helpers
+    /styles                  # Global and specific styles for typographys, colors, spacings and borders
+```
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project locally.
+
+### Prerequisites
+
+Make sure you have the following installed on your system:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+Clone the repository and install the dependencies:
+
+```sh
+git clone git@github.com:smmu94/zara-web-challenge.git
+cd zara-web-challenge
+npm install  # or yarn install
+```
+### Running the Application
+
+#### Development Mode
+
+To start the application in development mode, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
+```
+The app will be available at http://localhost:3000.
+
+#### Production Mode
+
+To build and run the production version:
+
+```bash
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The production-ready app will be served on http://localhost:3000.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
