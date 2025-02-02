@@ -1,5 +1,16 @@
 # Mobile Phone Catalog Web Application
 
+## Demo
+
+### Mobile
+![Mobile Demo](https://imgur.com/a/G5my1Ig)
+
+### Tablet
+![Tablet Demo](https://imgur.com/a/RkmhGTZ)
+
+### Desktop
+![Desktop Demo](https://imgur.com/a/sVTz6xN)
+
 ## Description
 
 This project is a web application focused on visualizing, searching, and managing a catalog of mobile phones. The app allows users to view detailed information about each device and efficiently manage their shopping cart.
