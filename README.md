@@ -3,13 +3,13 @@
 ## Demo
 
 ### Mobile
-![Mobile Demo](https://imgur.com/a/G5my1Ig)
+![Mobile Demo](./public/assets/mobile.gif)
 
 ### Tablet
-![Tablet Demo](https://imgur.com/a/RkmhGTZ)
+![Tablet Demo](./public/assets/tablet.gif)
 
 ### Desktop
-![Desktop Demo](https://imgur.com/a/sVTz6xN)
+![Desktop Demo](./public/assets/desk.gif)
 
 ## Description
 
